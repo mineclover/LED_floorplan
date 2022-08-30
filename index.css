@@ -1,0 +1,78 @@
+:root {
+  --main-size:10px;
+
+}
+
+
+ul {
+  display : grid;
+  grid-template: 1fr 1fr 1fr; 
+}
+li {
+  display : contents;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: var(--main-size);
+}
+
+header {
+  position: absolute;
+  width: 100vw;
+  background-color: #fff;
+  height: 100px;
+  font-size: 16px;
+}
+
+
+.a { 
+  
+  position: fixed;
+  background-color: #eee;
+  top: 100px;
+  width: calc(100vw);
+  height: calc(100vh - 100px);
+}
+
+
+
+html {
+  box-sizing: border-box;
+}
+
+.c{
+  border: 0.3em solid rgb(88, 0, 0);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+.d{
+  width: 10em;
+  height: 1em;
+  display: flex;
+}
+
+div{
+  background-color: rgba(0,0,0,0.15);
+  
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+div.col{
+  display: flex;
+}
+
+div.module{
+  display: block;
+  background-color: aqua;
+  width: 2em;
+  height: 1em;
+  outline: #fff 0.1em solid;
+  outline-offset: -0.1em;
+}
+
+

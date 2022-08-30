@@ -1,0 +1,20 @@
+{
+  "name": "LED_floorplan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mineclover/LED_floorplan.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mineclover/LED_floorplan/issues"
+  },
+  "homepage": "https://github.com/mineclover/LED_floorplan#readme"
+}
