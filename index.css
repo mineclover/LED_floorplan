@@ -24,6 +24,7 @@ header {
   background-color: rgb(211, 222, 255);
   height: 100px;
   font-size: 16px;
+  align-items: center;
 
 }
 
@@ -42,13 +43,30 @@ aside {
 }
 
 aside div {
+  background-color: rgba(0,0,0,0.15);
   padding: 2em;
-
-  
   white-space: nowrap;
-
 }
 
+button , input {
+  border: none;
+  background-color: rgba(0,0,0,0);
+}
+
+button.savePicture {
+  width: 90px;
+  height: 90px;
+  background-color: #fff;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+  border-radius: 10%;
+  font-weight: bold;
+  font-size: 18px;
+  
+  text-align: center;
+}
+button.savePicture:hover {
+  opacity: 0.8;
+}
 
 input {
   width: 5em;
@@ -87,7 +105,7 @@ html {
 }
 
 div{
-  background-color: rgba(0,0,0,0.15);
+  
   
   display: block;
   justify-content: center;

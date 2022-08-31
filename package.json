@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/mineclover/LED_floorplan/issues"
   },
-  "homepage": "https://github.com/mineclover/LED_floorplan#readme"
+  "homepage": "https://github.com/mineclover/LED_floorplan#readme",
+  "dependencies": {
+    "html2canvas": "^1.4.1"
+  }
 }
