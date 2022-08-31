@@ -18,12 +18,45 @@ html {
 
 header {
   position: absolute;
+  display: flex;
+  flex-direction: row;
   width: 100vw;
-  background-color: #fff;
+  background-color: rgb(211, 222, 255);
   height: 100px;
   font-size: 16px;
+
 }
 
+aside {
+  
+  
+  font-size: 16px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  z-index: 999;
+  line-height: 2em;
+  
+}
+
+aside div {
+  padding: 2em;
+
+  
+  white-space: nowrap;
+
+}
+
+
+input {
+  width: 5em;
+}
+
+input#ledName {
+  width: 12em;
+}
 
 .a { 
   

@@ -8,17 +8,76 @@
   <title>Document</title>
 </head>
 <body>
-  <header>
-    <ul>
-      <li>a</li>
-      <li>b</li>
-      <li>c</li>
+  <header class="header">
+    <div>
+      <p>화면 사이즈</p>
+      <label for="viewSizeUp">크기 키우기</label>
       
-    </ul>
-    <button onclick="plusSize(1)">+</button>
-    <button onclick="minusSize(1)">-</button>
+      <input id="viewSizeUp" type="button" value="+" onclick="plusSize(1)" onmousewheel="plusSize(1)">
+      <br>
+      <label for="viewSizeDown">크기 줄이기</label>
+      <input id="viewSizeDown" type="button" value="-" onclick="minusSize(1)" onmousewheel="minusSize(1)">
+      
+    </div>
     
   </header>
+
+  <aside>
+    
+    
+    <div>
+      <label for="ledColumn">전광판 이름</label>
+      <br>
+      <input type="text" id="ledName">
+      
+      <br>
+      <p>전광판 사양</p>
+      <input type="text" id="ledColumn">
+      <label for="ledColumn">단</label>
+      <br>
+      <input type="text" id="ledRow">
+      <label for="ledColumn">열</label>
+      <br>
+      <label for="moduleSize">모듈 사이즈</label>
+      <br>
+      <input type="text" id="moduleSize">
+      <label for="moduleSize">mm</label>
+    </div>
+    
+    <div>
+      <label for="freamColor">프레임 색상</label>
+      <input type="color" id="freamColor">
+      
+      <br>
+      <label for="moduleBorder">모듈 테두리 색상</label>
+      <input type="color" id="moduleBorder">
+
+      
+      <br>
+      <label for="moduleColor">모듈 색상</label>
+      <input type="color" id="moduleColor">
+      <br>
+      <label for="moduleIndex">모듈에 번호</label>
+      <input type="checkbox" id="moduleIndex">
+    </div>
+
+
+    <div>
+      
+      
+      <br>
+      <label for="moduleBorder">위치 값 x</label>
+      <input type="color" id="moduleBorder">
+      <span>,</span>
+      <label for="freamColor">위치 값 y</label>
+      <input type="text" id="freamColor">
+      
+      <br>
+      <label for="moduleColor">정렬</label>
+      <input type="" id="moduleColor">
+
+    </div>
+  </aside>
 
   
   <div class="a">
@@ -37,6 +96,23 @@
           <div class="module"></div>
           
         </div>
+        <div class="col">
+          <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+
+        </div>
+        <div class="col">
+          <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+
+        </div>
+        
         
         
       </div>
