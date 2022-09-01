@@ -13,9 +13,11 @@
       <p>화면 사이즈</p>
       <label for="viewSizeUp">크기 키우기</label>
       
+      <input type="text" id="">
       <input id="viewSizeUp" type="button" value="+" onclick="plusSize(1)" onmousewheel="plusSize(1)">
       <br>
       <label for="viewSizeDown">크기 줄이기</label>
+      <input type="text" id="">
       <input id="viewSizeDown" type="button" value="-" onclick="minusSize(1)" onmousewheel="minusSize(1)">
       
     </div>
@@ -64,22 +66,39 @@
       <input type="checkbox" id="moduleIndex">
     </div>
 
+    <div>
+      
+      <label for="freamSizeTop">위 프레임</label>
+      <input type="" id="freamSizeTop">
+      <br>
+      <label for="freamSizeLeft">왼쪽 프레임</label>
+      <input type="text" id="freamSizeLeft">
+      <br>
+      <label for="freamSizeRight">오른쪽 프레임</label>
+      <input type="text" id="freamSizeRight">
+      
+      <br>
+      <label for="freamSizeBottom">아래 프레임</label>
+      <input type="" id="freamSizeBottom">
 
+    </div>
     <div>
       
       
       <br>
       <label for="moduleBorder">위치 값 x</label>
-      <input type="color" id="moduleBorder">
+      <input type="text" id="positionX">
       <span>,</span>
       <label for="freamColor">위치 값 y</label>
-      <input type="text" id="freamColor">
+      <input type="text" id="positionY">
       
       <br>
       <label for="moduleColor">정렬</label>
-      <input type="" id="moduleColor">
+      <button type="" id="positionAlign">
+      
 
     </div>
+
   </aside>
 
   
@@ -97,6 +116,10 @@
         <div class="col">
           <div class="module"></div>
           <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+          
           
         </div>
         <div class="col">
@@ -121,6 +144,56 @@
       </div>
       <p></p>
     </article>
+  </div>
+
+  <div class="total-info">
+    
+    <table>
+      <tr>
+        <th></th>
+        <th>가로</th>
+        <th>세로</th>
+        <th>단위</th>
+      </tr>
+      <tr>
+        <th>화면 사이즈</th>
+        <td></td>
+        <td></td>
+        <td>mm</td>
+
+      </tr>
+      <tr>
+        <th>외곽 사이즈</th>
+        <td></td>
+        <td></td>
+        <td>mm</td>
+      </tr>
+      <tr>
+        <th>모듈 외경</th>
+        <td></td>
+        <td></td>
+        <td>mm</td>
+      </tr>
+      <tr>
+        <th>모듈 수량</th>
+        <td></td>
+        <td></td>
+        <td>EA (개)</td>
+      </tr>
+      <tr>
+        <th>소비 전력</th>
+        <td></td>
+        <td></td>
+        <td>W</td>
+      </tr>
+      <tr>
+        <th>모듈 해상도</th>
+        <td></td>
+        <td></td>
+        <td>px (pixel)</td>
+      </tr>
+    </table>
+
   </div>
 </body>
 </html>

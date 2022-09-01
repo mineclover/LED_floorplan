@@ -50,7 +50,6 @@ aside div {
 
 button , input {
   border: none;
-  background-color: rgba(0,0,0,0);
 }
 
 button.savePicture {
@@ -119,10 +118,33 @@ div.col{
 div.module{
   display: block;
   background-color: aqua;
-  width: 2em;
+  width: 1em;
   height: 1em;
   outline: #fff 0.1em solid;
   outline-offset: -0.1em;
 }
 
+
+.total-info {
+  position: absolute;
+  font-size: 16px;
+  
+  left: 2em;
+  bottom: 2em;
+  padding: 1em;
+  border-radius: 0.5em;
+  background-color: #fff;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+  
+}
+
+th, td {
+
+  text-align: center;
+  padding: 0.5em;
+  border: 1px #000 solid;
+  width: 1em;
+  height: 1em;
+  white-space: nowrap;
+}
 
