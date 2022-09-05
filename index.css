@@ -3,6 +3,11 @@
 
 }
 
+article{
+  
+}
+
+
 ul {
   display : grid;
   grid-template: 1fr 1fr 1fr; 
@@ -75,15 +80,36 @@ input#ledName {
   width: 12em;
 }
 
-.a { 
-  
-  position: fixed;
+div.view { 
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
   background-color: #eee;
+  position: fixed;
   top: 100px;
   width: calc(100vw);
   height: calc(100vh - 100px);
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+
 }
 
+
+article {
+  display: flex;
+  
+}
+
+.title {
+  flex-basis: 100%;
+}
+
+.silce {
+  flex-basis: 100%;
+}
 
 
 html {
@@ -92,10 +118,12 @@ html {
 
 .c{
   border: 0.3em solid rgb(88, 0, 0);
-  position: absolute;
+  
+  
+  /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%); */
 }
 .d{
   width: 10em;
