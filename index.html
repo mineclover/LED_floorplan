@@ -9,16 +9,14 @@
 </head>
 <body>
   <header class="header">
-    <div>
-      <p>화면 사이즈</p>
-      <label for="viewSizeUp">크기 키우기</label>
+    <div class="size-controller">
+      <div class="title"><p>화면 사이즈</p><span class="size-live">100%</span></div>
       
-      <input type="text" id="">
-      <input id="viewSizeUp" type="button" value="+" onclick="plusSize(1)" onmousewheel="plusSize(1)">
-      <br>
-      <label for="viewSizeDown">크기 줄이기</label>
-      <input type="text" id="">
-      <input id="viewSizeDown" type="button" value="-" onclick="minusSize(1)" onmousewheel="minusSize(1)">
+      <input id="viewSizeControll" type="range" name="viewSizeControll" 
+    min="2" max="100" value="10" step="1" onchange="viewSize()">
+    <!-- 사이즈 조절하다 왜 안되나 했더니 커져서 가려짐 -->
+    <!-- range https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range -->      
+
       
     </div>
     <div>
@@ -103,10 +101,10 @@
 
   
   <div class="view">
-    <div class="title"><p>제목</p></div>
+    <div class="title"><p>전광판 예시</p></div>
     <article>
-      <div class="c">
-        <div class="col">
+      <div id="part001" class="case">
+        <div class="column">
           <div class="module"></div>
           <div class="module"></div>
           <div class="module"></div>
@@ -114,7 +112,7 @@
           <div class="module"></div>
 
         </div>
-        <div class="col">
+        <div class="column">
           <div class="module"></div>
           <div class="module"></div>
           <div class="module"></div>
@@ -123,7 +121,7 @@
           
           
         </div>
-        <div class="col">
+        <div class="column">
           <div class="module"></div>
           <div class="module"></div>
           <div class="module"></div>
@@ -131,7 +129,7 @@
           <div class="module"></div>
 
         </div>
-        <div class="col">
+        <div class="column">
           <div class="module"></div>
           <div class="module"></div>
           <div class="module"></div>
@@ -146,8 +144,8 @@
     </article>
 
     <article>
-      <div class="c">
-        <div class="col">
+      <div class="case">
+        <div class="column">
           <div class="module"></div>
           <div class="module"></div>
           <div class="module"></div>
@@ -155,7 +153,7 @@
           <div class="module"></div>
 
         </div>
-        <div class="col">
+        <div class="column">
           <div class="module"></div>
           <div class="module"></div>
           <div class="module"></div>
@@ -164,7 +162,7 @@
           
           
         </div>
-        <div class="col">
+        <div class="column">
           <div class="module"></div>
           <div class="module"></div>
           <div class="module"></div>
@@ -172,7 +170,7 @@
           <div class="module"></div>
 
         </div>
-        <div class="col">
+        <div class="column">
           <div class="module"></div>
           <div class="module"></div>
           <div class="module"></div>
@@ -188,38 +186,62 @@
     </article>
     <div class="silce"></div>
     <article>
-      <div class="c">
-        <div class="col">
+      <div class="case">
+        <div class="column">
+          <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
           <div class="module"></div>
           <div class="module"></div>
           <div class="module"></div>
           <div class="module"></div>
           <div class="module"></div>
 
+
         </div>
-        <div class="col">
+        <div class="column">
           <div class="module"></div>
           <div class="module"></div>
           <div class="module"></div>
           <div class="module"></div>
           <div class="module"></div>
-          
-          
-        </div>
-        <div class="col">
           <div class="module"></div>
           <div class="module"></div>
           <div class="module"></div>
           <div class="module"></div>
           <div class="module"></div>
 
+          
+          
         </div>
-        <div class="col">
+        <div class="column">
           <div class="module"></div>
           <div class="module"></div>
           <div class="module"></div>
           <div class="module"></div>
           <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+
+
+        </div>
+        <div class="column">
+          <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+          <div class="module"></div>
+
 
         </div>
         

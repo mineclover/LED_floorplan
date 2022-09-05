@@ -1,10 +1,20 @@
 :root {
   --main-size:10px;
-
+  --moudle-size:100%;
+  /* 모듈 사이즈는 main-size * moudle-size */
+  /* 1cm는  */
 }
 
 article{
   
+}
+
+
+div.size-controller p {
+  display: inline-block;
+}
+div.size-controller span {
+  display: inline-block;
 }
 
 
@@ -30,7 +40,7 @@ header {
   height: 100px;
   font-size: 16px;
   align-items: center;
-
+  z-index: 100;
 }
 
 aside {
@@ -76,6 +86,10 @@ input {
   width: 5em;
 }
 
+input#viewSizeControll {
+  width: 20em;
+}
+
 input#ledName {
   width: 12em;
 }
@@ -103,8 +117,11 @@ article {
   
 }
 
-.title {
+.view .title {
   flex-basis: 100%;
+  text-align: center;
+  line-height: 2em;
+  font-weight: bold;
 }
 
 .silce {
@@ -116,7 +133,7 @@ html {
   box-sizing: border-box;
 }
 
-.c{
+.case{
   border: 0.3em solid rgb(88, 0, 0);
   
   
@@ -139,7 +156,7 @@ div{
   align-items: center;
 }
 
-div.col{
+div.column{
   display: flex;
 }
 
