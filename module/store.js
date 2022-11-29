@@ -5,13 +5,13 @@ export const spec = {
 		size: 160,
 	},
 	data: {
-		row: 5,
-		colunm: 5,
+		row: 4,
+		column: 8,
 	},
 	case: {
-		left: 2,
-		right: 4,
-		top: 6,
-		bottom: 8,
+		left: 20,
+		right: 40,
+		top: 60,
+		bottom: 80,
 	},
 };

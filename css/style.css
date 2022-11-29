@@ -24,9 +24,11 @@ main out-line inner-box {
   display: flex;
   margin-top: calc(var(--out-inner-box-top) * 1em);
   margin-left: calc(var(--out-inner-box-left) * 1em);
+  height: fit-content;
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.1);
   flex-wrap: wrap;
+  flex: 0;
 }
 main out-line inner-box row-box {
   display: flex;
