@@ -10,7 +10,7 @@ main {
   --out-inner-box-right: 16;
   --out-inner-box-top: 16;
   --out-inner-box-bottom: 16;
-  --unit: 1px;
+  --unit: 4px;
   font-size: var(--unit);
 }
 main out-line {
@@ -55,14 +55,28 @@ main out-line inner-box row-box:nth-child(1) led-module {
 main out-line inner-box row-box:nth-child(1) led-module:nth-child(1) {
   border-left: 1px solid #000;
 }
-main out-line inner-box row-box:nth-last-child(1) led-module {
+main out-line inner-box row-box:nth-last-child(2) led-module {
   border: none;
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
   border-right: 1px solid #000;
 }
-main out-line inner-box row-box:nth-last-child(1) led-module:nth-child(1) {
+main out-line inner-box row-box:nth-last-child(2) led-module:nth-child(1) {
   border-left: 1px solid #000;
+}
+
+div.icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+div.icon svg {
+  width: 35px;
+  height: 35px;
+  fill: rgb(241, 116, 116);
+  transform: rotateZ(45deg);
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,4 +1,4 @@
-import { spec } from './store.js';
+import { spec , storeDim } from './store.js';
 
 const targetBody = document.querySelector('body');
 const insertHeaderElement = document.createElement('header');
@@ -14,9 +14,12 @@ const mainRender = data => {
   </out-line>
   `;
 	targetBody.append(mainElement);
+  dimRender();
 };
 
+
 const coulmns = item => {
+  console.log(item, spec.module.width)
 	let result = Array(item / spec.module.width).fill(`<led-module></led-module>`);
 	result.unshift(`<row-box>`);
 	result.push(`</row-box>`);
@@ -27,6 +30,8 @@ const rows = item => {
 	let result = Array(item / spec.module.height).fill(coulmns(spec.data.column));
 	return result.join('');
 };
+
+
 
 const arr = [
 	{ class: 'data-column', key_01: 'data', key_02: 'column' },
@@ -57,13 +62,13 @@ console.log(spec[arr[0].key_01][arr[0].key_02]);
 
 const headerRender = data => {
 	insertHeaderElement.innerHTML = `
-  <div class="data-column">
+  <div class="data-row">
     <label>단
       <input type="number" value="${spec.data.row}" min="1" max="1000" />
       
     </label>
   </div>
-  <div class="data-row">
+  <div class="data-column">
     <label>열
       <input type="number" value="${spec.data.column}" min="1" max="1000" />
       
@@ -118,22 +123,40 @@ const headerRender = data => {
 };
 
 const update = () => {
-	const moduleWidth = (spec.module.width * spec.module.size) / 10;
-	const moduleHeight = (spec.module.height * spec.module.size) / 10;
+	spec.outputs.moduleWidth = (spec.module.width * spec.module.size) / 10;
+	spec.outputs.moduleHeight = (spec.module.height * spec.module.size) / 10;
 
-	mainElement.style.setProperty('--out-led-module-width', moduleWidth);
-	mainElement.style.setProperty('--out-led-module-height', moduleHeight);
+	mainElement.style.setProperty('--out-led-module-width', spec.outputs.moduleWidth);
+	mainElement.style.setProperty('--out-led-module-height', spec.outputs.moduleHeight);
 
-	const width = (spec.case.left + spec.case.right) / 10 + (spec.data.column * moduleWidth) / spec.module.width;
-	const height = (spec.case.top + spec.case.bottom) / 10 + (spec.data.row * moduleHeight) / spec.module.height;
+	spec.outputs.caseWidth = (spec.case.left + spec.case.right) / 10 + (spec.data.column * spec.outputs.moduleWidth) / spec.module.width;
+	spec.outputs.caseHeight = (spec.case.top + spec.case.bottom) / 10 + (spec.data.row * spec.outputs.moduleHeight) / spec.module.height;
 
-	mainElement.style.setProperty('--out-line-width', width);
-	mainElement.style.setProperty('--out-line-height', height);
+	mainElement.style.setProperty('--out-line-width', spec.outputs.caseWidth);
+	mainElement.style.setProperty('--out-line-height', spec.outputs.caseHeight);
 
 	mainElement.style.setProperty('--out-inner-box-left', spec.case.left / 10);
 	mainElement.style.setProperty('--out-inner-box-right', spec.case.right / 10);
 	mainElement.style.setProperty('--out-inner-box-top', spec.case.top / 10);
 	mainElement.style.setProperty('--out-inner-box-bottom', spec.case.bottom / 10);
+
+  //dimension
+
+
 };
+
+const dimRender = () => {
+  //dimension 
+  storeDim.innerXDim = spec.outputs.caseWidth - spec.case.left - spec.case.right ;
+  console.log(storeDim.innerXDim);
+  storeDim.innerYDim = spec.outputs.caseHeight - spec.case.top - spec.case.bottom ;
+  console.log(storeDim.innerYDim);
+  const dimXElement = document.createElement('div');
+  dimXElement.classList.add('dim-x');
+  
+  
+  document.querySelector('inner-box').append(dimXElement);
+
+}
 
 export { mainRender, headerRender };
