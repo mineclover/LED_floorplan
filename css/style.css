@@ -55,28 +55,133 @@ main out-line inner-box row-box:nth-child(1) led-module {
 main out-line inner-box row-box:nth-child(1) led-module:nth-child(1) {
   border-left: 1px solid #000;
 }
-main out-line inner-box row-box:nth-last-child(2) led-module {
+main out-line inner-box row-box:nth-last-child(3) led-module {
   border: none;
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
   border-right: 1px solid #000;
 }
-main out-line inner-box row-box:nth-last-child(2) led-module:nth-child(1) {
+main out-line inner-box row-box:nth-last-child(3) led-module:nth-child(1) {
   border-left: 1px solid #000;
 }
 
-div.icon {
-  width: 50px;
-  height: 50px;
+.dim-x {
+  position: relative;
+  box-sizing: border-box;
+  --dim-height: 40;
+  --arrow-size: 16;
+  width: 100%;
+  height: calc(var(--dim-height) * 1px);
+  border-left: 2px solid red;
+  border-right: 2px solid red;
+}
+.dim-x .left-arrow {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: calc(var(--arrow-size) * 1px);
+  height: calc(var(--arrow-size) * 1px);
   display: flex;
   align-items: center;
   justify-content: center;
 }
-div.icon svg {
-  width: 35px;
-  height: 35px;
-  fill: rgb(241, 116, 116);
+.dim-x .left-arrow svg {
+  width: calc(var(--arrow-size) * 0.7px);
+  height: calc(var(--arrow-size) * 0.7px);
   transform: rotateZ(45deg);
+}
+.dim-x .right-arrow {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: calc(var(--arrow-size) * 1px);
+  height: calc(var(--arrow-size) * 1px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dim-x .right-arrow svg {
+  width: calc(var(--arrow-size) * 0.7px);
+  height: calc(var(--arrow-size) * 0.7px);
+  transform: rotateZ(-135deg);
+}
+.dim-x .line {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: calc(var(--arrow-size) * 0.4px);
+  width: 2px;
+  height: 100%;
+  background-color: red;
+}
+.dim-x .line .dim-text {
+  display: block;
+  margin-bottom: calc(var(--dim-height) * 0.6px);
+  font-weight: bold;
+  font-size: 16px;
+  color: red;
+}
+
+.dim-y {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  box-sizing: border-box;
+  --dim-height: 40;
+  --arrow-size: 16;
+  width: calc(var(--dim-height) * 1px);
+  height: 100%;
+  border-top: 2px solid red;
+  border-bottom: 2px solid red;
+}
+.dim-y .left-arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(var(--arrow-size) * 1px);
+  height: calc(var(--arrow-size) * 1px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dim-y .left-arrow svg {
+  width: calc(var(--arrow-size) * 0.7px);
+  height: calc(var(--arrow-size) * 0.7px);
+  transform: rotateZ(135deg);
+}
+.dim-y .right-arrow {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: calc(var(--arrow-size) * 1px);
+  height: calc(var(--arrow-size) * 1px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dim-y .right-arrow svg {
+  width: calc(var(--arrow-size) * 0.7px);
+  height: calc(var(--arrow-size) * 0.7px);
+  transform: rotateZ(-45deg);
+}
+.dim-y .line {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: calc(var(--arrow-size) * 0.4px);
+  width: 100%;
+  height: 2px;
+  background-color: red;
+}
+.dim-y .line .dim-text {
+  display: block;
+  margin-bottom: calc(var(--dim-height) * 0.6px);
+  font-weight: bold;
+  font-size: 16px;
+  color: red;
 }
 
 /*# sourceMappingURL=style.css.map */

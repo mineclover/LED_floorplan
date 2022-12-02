@@ -1,4 +1,4 @@
-import { spec , storeDim } from './store.js';
+import { spec, storeDim } from './store.js';
 
 const targetBody = document.querySelector('body');
 const insertHeaderElement = document.createElement('header');
@@ -14,12 +14,11 @@ const mainRender = data => {
   </out-line>
   `;
 	targetBody.append(mainElement);
-  dimRender();
+	dimRender();
 };
 
-
 const coulmns = item => {
-  console.log(item, spec.module.width)
+	console.log(item, spec.module.width);
 	let result = Array(item / spec.module.width).fill(`<led-module></led-module>`);
 	result.unshift(`<row-box>`);
 	result.push(`</row-box>`);
@@ -30,8 +29,6 @@ const rows = item => {
 	let result = Array(item / spec.module.height).fill(coulmns(spec.data.column));
 	return result.join('');
 };
-
-
 
 const arr = [
 	{ class: 'data-column', key_01: 'data', key_02: 'column' },
@@ -129,8 +126,10 @@ const update = () => {
 	mainElement.style.setProperty('--out-led-module-width', spec.outputs.moduleWidth);
 	mainElement.style.setProperty('--out-led-module-height', spec.outputs.moduleHeight);
 
-	spec.outputs.caseWidth = (spec.case.left + spec.case.right) / 10 + (spec.data.column * spec.outputs.moduleWidth) / spec.module.width;
-	spec.outputs.caseHeight = (spec.case.top + spec.case.bottom) / 10 + (spec.data.row * spec.outputs.moduleHeight) / spec.module.height;
+	spec.outputs.caseWidth =
+		(spec.case.left + spec.case.right) / 10 + (spec.data.column * spec.outputs.moduleWidth) / spec.module.width;
+	spec.outputs.caseHeight =
+		(spec.case.top + spec.case.bottom) / 10 + (spec.data.row * spec.outputs.moduleHeight) / spec.module.height;
 
 	mainElement.style.setProperty('--out-line-width', spec.outputs.caseWidth);
 	mainElement.style.setProperty('--out-line-height', spec.outputs.caseHeight);
@@ -140,23 +139,61 @@ const update = () => {
 	mainElement.style.setProperty('--out-inner-box-top', spec.case.top / 10);
 	mainElement.style.setProperty('--out-inner-box-bottom', spec.case.bottom / 10);
 
-  //dimension
-
-
+	//dimension
 };
 
 const dimRender = () => {
-  //dimension 
-  storeDim.innerXDim = spec.outputs.caseWidth - spec.case.left - spec.case.right ;
-  console.log(storeDim.innerXDim);
-  storeDim.innerYDim = spec.outputs.caseHeight - spec.case.top - spec.case.bottom ;
-  console.log(storeDim.innerYDim);
-  const dimXElement = document.createElement('div');
-  dimXElement.classList.add('dim-x');
-  
-  
-  document.querySelector('inner-box').append(dimXElement);
+	//dimension
+	storeDim.innerXDim = spec.outputs.caseWidth;
+	storeDim.innerXDim = storeDim.innerXDim * 10;
+	console.log(storeDim.innerXDim);
+	storeDim.innerYDim = spec.outputs.caseHeight;
+	storeDim.innerYDim = spec.outputs.caseHeight * 10;
+	console.log(storeDim.innerYDim);
+	const dimXElement = document.createElement('div');
+	dimXElement.classList.add('dim-x');
 
-}
+	// 재사용 고려해보기
+	dimXElement.innerHTML = `
+  <div class="left-arrow">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -17 17 17" width="100" height="100">
+      <path d="M 2 0 L 15 0 A 1 1 0 0 0 15 -4 L 5 -4 A 1 1 0 0 1 4 -5 L 4 -15 A 1 1 0 0 0 0 -15 L 0 -2 A 2 2 0 0 0 2 0 Z" fill="#ff0000"/>
+    </svg>
+  </div class="left-arrow">
+  <div class="bottom-dim"></div class="bottom-dim">
+  <div class="right-arrow">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -17 17 17" width="100" height="100">
+      <path d="M 2 0 L 15 0 A 1 1 0 0 0 15 -4 L 5 -4 A 1 1 0 0 1 4 -5 L 4 -15 A 1 1 0 0 0 0 -15 L 0 -2 A 2 2 0 0 0 2 0 Z" fill="#ff0000"/>
+    </svg>
+  </div class="right-arrow">
+  <div class="line">
+  <span class="dim-text">${storeDim.innerXDim}mm</span>
+  </div>
+  `;
+
+	const dimYElement = document.createElement('div');
+	dimYElement.classList.add('dim-y');
+
+	// 재사용 고려해보기
+	dimYElement.innerHTML = `
+  <div class="left-arrow">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -17 17 17" width="100" height="100">
+      <path d="M 2 0 L 15 0 A 1 1 0 0 0 15 -4 L 5 -4 A 1 1 0 0 1 4 -5 L 4 -15 A 1 1 0 0 0 0 -15 L 0 -2 A 2 2 0 0 0 2 0 Z" fill="#ff0000"/>
+    </svg>
+  </div class="left-arrow">
+  <div class="bottom-dim"></div class="bottom-dim">
+  <div class="right-arrow">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -17 17 17" width="100" height="100">
+      <path d="M 2 0 L 15 0 A 1 1 0 0 0 15 -4 L 5 -4 A 1 1 0 0 1 4 -5 L 4 -15 A 1 1 0 0 0 0 -15 L 0 -2 A 2 2 0 0 0 2 0 Z" fill="#ff0000"/>
+    </svg>
+  </div class="right-arrow">
+  <div class="line">
+  <span class="dim-text">${storeDim.innerXDim}mm</span>
+  </div>
+  `;
+
+	document.querySelector('inner-box').append(dimXElement);
+	document.querySelector('inner-box').append(dimYElement);
+};
 
 export { mainRender, headerRender };
