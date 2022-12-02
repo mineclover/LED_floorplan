@@ -188,7 +188,7 @@ const dimRender = () => {
     </svg>
   </div class="right-arrow">
   <div class="line">
-  <span class="dim-text">${storeDim.innerXDim}mm</span>
+  <span class="dim-text">${storeDim.innerYDim}mm</span>
   </div>
   `;
 
