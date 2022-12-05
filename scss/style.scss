@@ -1,3 +1,19 @@
+body {
+	height: 100vh;
+	margin: auto;
+}
+
+#title {
+	outline: none;
+	border: none;
+	font-size: 16px;
+}
+
+header {
+	position: fixed;
+	left: 0;
+}
+
 main {
 	display: flex;
 	align-items: center;
@@ -15,6 +31,9 @@ main {
 	--out-inner-box-top: 16;
 	--out-inner-box-bottom: 16;
 
+	--dim-height: 40;
+	--arrow-size: 16;
+
 	--unit: 4px;
 	font-size: var(--unit);
 
@@ -25,12 +44,12 @@ main {
 		width: calc(var(--out-line-width) * 1em);
 		height: calc(var(--out-line-height) * 1em);
 		inner-box {
+			position: relative;
 			display: flex;
 			margin-top: calc(var(--out-inner-box-top) * 1em);
 			margin-left: calc(var(--out-inner-box-left) * 1em);
 			height: fit-content;
 			flex-direction: column;
-			background-color: rgba(0, 0, 0, 0.1);
 			flex-wrap: wrap;
 			flex: 0;
 			row-box {
@@ -76,10 +95,10 @@ main {
 }
 
 .dim-x {
-	position: relative;
+	position: absolute;
+	bottom: calc(var(--dim-height) * -1.1px);
 	box-sizing: border-box;
-	--dim-height: 40;
-	--arrow-size: 16;
+
 	width: 100%;
 	height: calc(var(--dim-height) * 1px);
 
@@ -128,22 +147,22 @@ main {
 		background-color: red;
 		.dim-text {
 			display: block;
-			margin-bottom: calc((var(--dim-height) * 0.6px));
 			font-weight: bold;
 			font-size: 16px;
 			color: red;
+			background-color: rgba(255, 255, 255, 0.7);
 		}
 	}
 }
 
 .dim-y {
 	position: absolute;
-	right: calc(var(--dim-height) * -1px);
+
+	right: calc(var(--dim-height) * -1.1px);
 	box-sizing: border-box;
-	--dim-height: 40;
-	--arrow-size: 16;
+
 	width: calc(var(--dim-height) * 1px);
-	height: calc(var(--inner-box-height) * 1em);
+	height: 100%;
 
 	border-top: 2px solid red;
 	border-bottom: 2px solid red;
@@ -191,10 +210,49 @@ main {
 		background-color: red;
 		.dim-text {
 			display: block;
-			margin-bottom: calc((var(--dim-height) * 0.6px));
 			font-weight: bold;
 			font-size: 16px;
 			color: red;
+			background-color: rgba(255, 255, 255, 0.7);
+		}
+	}
+}
+
+out-line {
+	inner-box {
+		.dim-x {
+			.line {
+				.dim-text {
+					margin: 0;
+					margin-bottom: calc((var(--dim-height) * 0.6px));
+					margin-right: 128px;
+				}
+			}
+		}
+		.dim-y {
+			.line {
+				.dim-text {
+					margin: 0;
+					margin-bottom: 64px;
+					margin-right: 64px;
+				}
+			}
+		}
+	}
+	.dim-x {
+		.line {
+			.dim-text {
+				margin-bottom: calc((var(--dim-height) * 0.6px));
+				margin-left: 128px;
+			}
+		}
+	}
+	.dim-y {
+		.line {
+			.dim-text {
+				margin-top: 64px;
+				margin-left: 64px;
+			}
 		}
 	}
 }

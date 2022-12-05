@@ -14,7 +14,21 @@ const mainRender = data => {
   </out-line>
   `;
 	targetBody.append(mainElement);
+	numberRender();
 	dimRender();
+};
+
+const numberRender = () => {
+	const boxs = document.querySelectorAll('row-box');
+	boxs.forEach((item, index) => {
+		if (index === 0) {
+			item.querySelectorAll('led-module').forEach((item, index) => {
+				item.innerHTML = index + 1;
+			});
+		} else {
+			item.querySelector('led-module').innerHTML = index + 1;
+		}
+	});
 };
 
 const coulmns = item => {
@@ -91,25 +105,25 @@ const headerRender = data => {
   </div>
   <div class="case-top">
     <label>케이스 상
-      <input type="number" value="${spec.case.top}" min="10" step="10" />
+      <input type="number" value="${spec.case.top}" min="0" step="10" />
       mm
     </label>
   </div>
   <div class="case-bottom">
     <label>케이스 하
-      <input type="number" value="${spec.case.bottom}" min="10" step="10" />
+      <input type="number" value="${spec.case.bottom}" min="0" step="10" />
       mm
     </label>
   </div>
   <div class="case-left">
     <label>케이스 좌
-      <input type="number" value="${spec.case.left}" min="10" step="10"/>
+      <input type="number" value="${spec.case.left}" min="0" step="10"/>
       mm
     </label>
   </div>
   <div class="case-right">
     <label>케이스 우
-      <input type="number" value="${spec.case.right}" min="10" step="10" />
+      <input type="number" value="${spec.case.right}" min="0" step="10" />
       mm
     </label>
   </div>
@@ -153,47 +167,41 @@ const dimRender = () => {
 	const dimXElement = document.createElement('div');
 	dimXElement.classList.add('dim-x');
 
+	const dimBox = (text, option = '') => {
+		return `
+    <div class="left-arrow">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -17 17 17" width="100" height="100">
+        <path d="M 2 0 L 15 0 A 1 1 0 0 0 15 -4 L 5 -4 A 1 1 0 0 1 4 -5 L 4 -15 A 1 1 0 0 0 0 -15 L 0 -2 A 2 2 0 0 0 2 0 Z" fill="#ff0000"/>
+      </svg>
+    </div class="left-arrow">
+    <div class="bottom-dim"></div class="bottom-dim">
+    <div class="right-arrow">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -17 17 17" width="100" height="100">
+        <path d="M 2 0 L 15 0 A 1 1 0 0 0 15 -4 L 5 -4 A 1 1 0 0 1 4 -5 L 4 -15 A 1 1 0 0 0 0 -15 L 0 -2 A 2 2 0 0 0 2 0 Z" fill="#ff0000"/>
+      </svg>
+    </div class="right-arrow">
+    <div class="line">
+    <span class="dim-text">${option}${text}mm</span>
+    </div>
+    `;
+	};
+
 	// 재사용 고려해보기
-	dimXElement.innerHTML = `
-  <div class="left-arrow">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -17 17 17" width="100" height="100">
-      <path d="M 2 0 L 15 0 A 1 1 0 0 0 15 -4 L 5 -4 A 1 1 0 0 1 4 -5 L 4 -15 A 1 1 0 0 0 0 -15 L 0 -2 A 2 2 0 0 0 2 0 Z" fill="#ff0000"/>
-    </svg>
-  </div class="left-arrow">
-  <div class="bottom-dim"></div class="bottom-dim">
-  <div class="right-arrow">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -17 17 17" width="100" height="100">
-      <path d="M 2 0 L 15 0 A 1 1 0 0 0 15 -4 L 5 -4 A 1 1 0 0 1 4 -5 L 4 -15 A 1 1 0 0 0 0 -15 L 0 -2 A 2 2 0 0 0 2 0 Z" fill="#ff0000"/>
-    </svg>
-  </div class="right-arrow">
-  <div class="line">
-  <span class="dim-text">${storeDim.innerXDim}mm</span>
-  </div>
-  `;
 
 	const dimYElement = document.createElement('div');
 	dimYElement.classList.add('dim-y');
-
+	const clonedXDim = dimXElement.cloneNode(true);
+	const clonedYDim = dimYElement.cloneNode(true);
 	// 재사용 고려해보기
-	dimYElement.innerHTML = `
-  <div class="left-arrow">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -17 17 17" width="100" height="100">
-      <path d="M 2 0 L 15 0 A 1 1 0 0 0 15 -4 L 5 -4 A 1 1 0 0 1 4 -5 L 4 -15 A 1 1 0 0 0 0 -15 L 0 -2 A 2 2 0 0 0 2 0 Z" fill="#ff0000"/>
-    </svg>
-  </div class="left-arrow">
-  <div class="bottom-dim"></div class="bottom-dim">
-  <div class="right-arrow">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -17 17 17" width="100" height="100">
-      <path d="M 2 0 L 15 0 A 1 1 0 0 0 15 -4 L 5 -4 A 1 1 0 0 1 4 -5 L 4 -15 A 1 1 0 0 0 0 -15 L 0 -2 A 2 2 0 0 0 2 0 Z" fill="#ff0000"/>
-    </svg>
-  </div class="right-arrow">
-  <div class="line">
-  <span class="dim-text">${storeDim.innerYDim}mm</span>
-  </div>
-  `;
+	dimXElement.innerHTML = dimBox(storeDim.innerXDim);
+	dimYElement.innerHTML = dimBox(storeDim.innerYDim);
 
-	document.querySelector('inner-box').append(dimXElement);
-	document.querySelector('inner-box').append(dimYElement);
+	clonedXDim.innerHTML = dimBox(storeDim.innerXDim - spec.case.left - spec.case.right, '내경 : ');
+	clonedYDim.innerHTML = dimBox(storeDim.innerYDim - spec.case.top - spec.case.bottom, '내경 : ');
+	document.querySelector('out-line').append(dimXElement);
+	document.querySelector('out-line').append(dimYElement);
+	document.querySelector('inner-box').append(clonedXDim);
+	document.querySelector('inner-box').append(clonedYDim);
 };
 
 export { mainRender, headerRender };
