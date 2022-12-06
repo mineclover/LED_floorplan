@@ -1,3 +1,12 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable.css");
+:root {
+  --unit: 4;
+  font-size: calc(var(--unit) * 1px);
+  --dim-text-size: 10px;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-weight: 600;
+}
+
 body {
   height: 100vh;
   margin: auto;
@@ -7,6 +16,7 @@ body {
   outline: none;
   border: none;
   font-size: 16px;
+  font-weight: 900;
 }
 
 header {
@@ -30,21 +40,19 @@ main {
   --out-inner-box-bottom: 16;
   --dim-height: 40;
   --arrow-size: 16;
-  --unit: 4px;
-  font-size: var(--unit);
 }
 main out-line {
   position: relative;
   display: flex;
-  background-color: rgba(0, 0, 0, 0.1);
-  width: calc(var(--out-line-width) * 1em);
-  height: calc(var(--out-line-height) * 1em);
+  background-color: #ccc;
+  width: calc(var(--out-line-width) * 1rem);
+  height: calc(var(--out-line-height) * 1rem);
 }
 main out-line inner-box {
   position: relative;
   display: flex;
-  margin-top: calc(var(--out-inner-box-top) * 1em);
-  margin-left: calc(var(--out-inner-box-left) * 1em);
+  margin-top: calc(var(--out-inner-box-top) * 1rem);
+  margin-left: calc(var(--out-inner-box-left) * 1rem);
   height: fit-content;
   flex-direction: column;
   flex-wrap: wrap;
@@ -57,12 +65,14 @@ main out-line inner-box row-box {
 }
 main out-line inner-box row-box led-module {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8em;
   box-sizing: border-box;
-  width: calc(var(--out-led-module-width) * 1em);
-  height: calc(var(--out-led-module-height) * 1em);
+  width: calc(var(--out-led-module-width) * 1rem);
+  height: calc(var(--out-led-module-height) * 1rem);
   border-top: 1px solid #000;
   border-right: 1px solid #000;
-  background-color: rgba(0, 0, 0, 0.1);
 }
 main out-line inner-box row-box led-module:nth-child(1) {
   border-left: 1px solid #000;
@@ -129,15 +139,15 @@ main out-line inner-box row-box:nth-last-child(3) led-module:nth-child(1) {
   display: flex;
   align-items: center;
   justify-content: center;
-  bottom: calc(var(--arrow-size) * 0.4px);
+  bottom: calc(var(--arrow-size) * 0.5px);
   width: 100%;
-  height: 2px;
+  height: calc(var(--line-width) * 1px);
   background-color: red;
 }
 .dim-x .line .dim-text {
   display: block;
   font-weight: bold;
-  font-size: 16px;
+  font-size: var(--dim-text-size);
   color: red;
   background-color: rgba(255, 255, 255, 0.7);
 }
@@ -186,36 +196,36 @@ main out-line inner-box row-box:nth-last-child(3) led-module:nth-child(1) {
   display: flex;
   align-items: center;
   justify-content: center;
-  right: calc(var(--arrow-size) * 0.4px);
-  width: 2px;
+  right: calc((var(--arrow-size) - var(--line-width)) * 0.5px);
+  width: calc(var(--line-width) * 1px);
   height: 100%;
   background-color: red;
 }
 .dim-y .line .dim-text {
   display: block;
   font-weight: bold;
-  font-size: 16px;
+  font-size: var(--dim-text-size);
   color: red;
   background-color: rgba(255, 255, 255, 0.7);
 }
 
 out-line inner-box .dim-x .line .dim-text {
   margin: 0;
-  margin-bottom: calc(var(--dim-height) * 0.6px);
-  margin-right: 128px;
+  margin-bottom: calc(var(--dim-text-size) * 2);
+  margin-right: calc(var(--dim-text-size) * 6);
 }
 out-line inner-box .dim-y .line .dim-text {
   margin: 0;
-  margin-bottom: 64px;
-  margin-right: 64px;
+  margin-bottom: calc(var(--dim-text-size) * 3);
+  margin-right: calc(var(--dim-text-size) * 5);
 }
 out-line .dim-x .line .dim-text {
-  margin-bottom: calc(var(--dim-height) * 0.6px);
-  margin-left: 128px;
+  margin-bottom: calc(var(--dim-text-size) * 2);
+  margin-left: calc(var(--dim-text-size) * 6);
 }
 out-line .dim-y .line .dim-text {
-  margin-top: 64px;
-  margin-left: 64px;
+  margin-top: calc(var(--dim-text-size) * 3);
+  margin-left: calc(var(--dim-text-size) * 5);
 }
 
 /*# sourceMappingURL=style.css.map */

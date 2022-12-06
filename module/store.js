@@ -14,16 +14,22 @@ export const spec = {
 		top: 60,
 		bottom: 80,
 	},
-  outputs: {
-    moduleWidth : 320,
-    moduleHeight : 160,
-    caseWidth : 1340,
-    caseHeight : 780,
-  }
+	outputs: {
+		moduleWidth: 320,
+		moduleHeight: 160,
+		caseWidth: 1340,
+		caseHeight: 780,
+	},
+	settings: {
+		unit: 1,
+		innerText: '내경 : ',
+		outerText: '외경 : ',
+		dimTextSize: 5,
+		arrowSize: 10,
+	},
 };
 
 export const storeDim = {
-  innerXDim : 1280,
-  innerYDim : 720,
-
-}
+	innerXDim: 1280,
+	innerYDim: 720,
+};

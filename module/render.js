@@ -45,22 +45,172 @@ const rows = item => {
 };
 
 const arr = [
-	{ class: 'data-column', key_01: 'data', key_02: 'column' },
-	{ class: 'data-row', key_01: 'data', key_02: 'row' },
-	{ class: 'module-size', key_01: 'module', key_02: 'size' },
-	{ class: 'module-height', key_01: 'module', key_02: 'height' },
-	{ class: 'module-width', key_01: 'module', key_02: 'width' },
-	{ class: 'case-top', key_01: 'case', key_02: 'top' },
-	{ class: 'case-bottom', key_01: 'case', key_02: 'bottom' },
-	{ class: 'case-left', key_01: 'case', key_02: 'left' },
-	{ class: 'case-right', key_01: 'case', key_02: 'right' },
+	{
+		type: 'number',
+		class: 'data-row',
+		key_01: 'data',
+		key_02: 'row',
+		prename: '단',
+		postname: '',
+		min: 1,
+		max: 1000,
+		other: '',
+	},
+	{
+		type: 'number',
+		class: 'data-column',
+		key_01: 'data',
+		key_02: 'column',
+		prename: '열',
+		postname: '',
+		min: 1,
+		max: 1000,
+		other: '',
+	},
+	{
+		type: 'number',
+		class: 'module-size',
+		key_01: 'module',
+		key_02: 'size',
+		prename: '모듈크기',
+		postname: 'mm',
+		min: 1,
+		max: 1000,
+		other: '',
+	},
+	{
+		type: 'number',
+		class: 'module-height',
+		key_01: 'module',
+		key_02: 'height',
+		prename: '모듈별 단',
+		postname: '',
+		min: 1,
+		max: 10,
+		other: '',
+	},
+	{
+		type: 'number',
+		class: 'module-width',
+		key_01: 'module',
+		key_02: 'width',
+		prename: '모듈 별 열',
+		postname: 'mm',
+		min: 1,
+		max: 10,
+		other: '',
+	},
+	{
+		type: 'number',
+		class: 'case-top',
+		key_01: 'case',
+		key_02: 'top',
+		prename: '케이스 상',
+		postname: 'mm',
+		min: 0,
+		max: 1000,
+		other: 'step="10"',
+	},
+	{
+		type: 'number',
+		class: 'case-bottom',
+		key_01: 'case',
+		key_02: 'bottom',
+		prename: '케이스 하',
+		postname: 'mm',
+		min: 0,
+		max: 1000,
+		other: 'step="10"',
+	},
+	{
+		type: 'number',
+		class: 'case-left',
+		key_01: 'case',
+		key_02: 'left',
+		prename: '케이스 좌',
+		postname: 'mm',
+		min: 0,
+		max: 1000,
+		other: 'step="10"',
+	},
+	{
+		type: 'number',
+		class: 'case-right',
+		key_01: 'case',
+		key_02: 'right',
+		prename: '케이스 우',
+		postname: 'mm',
+		min: 0,
+		max: 1000,
+		other: 'step="10"',
+	},
+	{
+		type: 'number',
+		class: 'font-control',
+		key_01: 'settings',
+		key_02: 'unit',
+		prename: '이미지 배율',
+		postname: 'px',
+		min: 0,
+		max: 100,
+		other: 'step="0.1"',
+	},
+	{
+		type: 'number',
+		class: 'dim-control',
+		key_01: 'settings',
+		key_02: 'dimTextSize',
+		prename: 'dim 폰트 크기',
+		postname: 'px',
+		min: 0,
+		max: 100,
+		other: 'step="0.5"',
+	},
+	{
+		type: 'number',
+		class: 'arrow-control',
+		key_01: 'settings',
+		key_02: 'arrowSize',
+		prename: 'dim 화살표 크기',
+		postname: 'px',
+		min: 0,
+		max: 100,
+		other: 'step="0.5"',
+	},
+	{
+		type: 'text',
+		class: 'inner-dim-text',
+		key_01: 'settings',
+		key_02: 'innerText',
+		prename: '안쪽 치수 전치사',
+		postname: '',
+		min: 0,
+		max: 100,
+		other: 'step="0.5"',
+	},
+	{
+		type: 'text',
+		class: 'outer-dim-text',
+		key_01: 'settings',
+		key_02: 'outerText',
+		prename: '바깥쪽 치수 전치사',
+		postname: '',
+		min: 0,
+		max: 100,
+		other: 'step="0.5"',
+	},
 ];
+// key_01 : spec의 key 값 , key_02 : spec의 key 값 안에 key 값
 
 const eventPush = Element => {
 	arr.forEach(item => {
 		const target = Element.querySelector(`.${item.class}`);
 		target.addEventListener('change', e => {
-			spec[item.key_01][item.key_02] = Number(e.target.value);
+			if (item.type === 'number') {
+				spec[item.key_01][item.key_02] = Number(e.target.value);
+			} else if (item.type === 'text') {
+				spec[item.key_01][item.key_02] = e.target.value;
+			}
 			mainRender();
 		});
 	});
@@ -71,64 +221,19 @@ console.log(spec['data']['column']);
 console.log(spec.data.column);
 console.log(spec[arr[0].key_01][arr[0].key_02]);
 
-const headerRender = data => {
-	insertHeaderElement.innerHTML = `
-  <div class="data-row">
-    <label>단
-      <input type="number" value="${spec.data.row}" min="1" max="1000" />
-      
-    </label>
-  </div>
-  <div class="data-column">
-    <label>열
-      <input type="number" value="${spec.data.column}" min="1" max="1000" />
-      
-    </label>
-  </div>
-  <div class="module-size">
-    <label>모듈 크기
-      <input type="number" value="${spec.module.size}" min="1" max="1000" />
-      mm
-    </label>
-  </div>
-  <div class="module-height">
-    <label>모듈 단
-      <input type="number" value="${spec.module.height}" min="1" max="10" />
-      
-    </label>
-  </div>
-  <div class="module-width">
-    <label>모듈 열
-      <input type="number" value="${spec.module.width}" min="1" max="10" />
-      
-    </label>
-  </div>
-  <div class="case-top">
-    <label>케이스 상
-      <input type="number" value="${spec.case.top}" min="0" step="10" />
-      mm
-    </label>
-  </div>
-  <div class="case-bottom">
-    <label>케이스 하
-      <input type="number" value="${spec.case.bottom}" min="0" step="10" />
-      mm
-    </label>
-  </div>
-  <div class="case-left">
-    <label>케이스 좌
-      <input type="number" value="${spec.case.left}" min="0" step="10"/>
-      mm
-    </label>
-  </div>
-  <div class="case-right">
-    <label>케이스 우
-      <input type="number" value="${spec.case.right}" min="0" step="10" />
-      mm
-    </label>
-  </div>
-  `;
+const inputGenerate = item => {
+	return `<div class="${item.class}">
+  <label>${item.prename}
+    <input type="${item.type}" value="${spec[item.key_01][item.key_02]}" min="${item.min}" max="${item.max}" ${
+		item?.other
+	}/>
+    ${item.postname}
+  </label>
+</div>`;
+};
 
+const headerRender = data => {
+	insertHeaderElement.innerHTML = arr.map(item => inputGenerate(item)).join('');
 	targetBody.append(insertHeaderElement);
 	eventPush(insertHeaderElement);
 };
@@ -152,6 +257,9 @@ const update = () => {
 	mainElement.style.setProperty('--out-inner-box-right', spec.case.right / 10);
 	mainElement.style.setProperty('--out-inner-box-top', spec.case.top / 10);
 	mainElement.style.setProperty('--out-inner-box-bottom', spec.case.bottom / 10);
+	document.documentElement.style.setProperty('--unit', spec.settings.unit);
+	document.documentElement.style.setProperty('--dim-text-size', `${spec.settings.dimTextSize}px`);
+	mainElement.style.setProperty('--arrow-size', spec.settings.arrowSize);
 
 	//dimension
 };
@@ -193,11 +301,11 @@ const dimRender = () => {
 	const clonedXDim = dimXElement.cloneNode(true);
 	const clonedYDim = dimYElement.cloneNode(true);
 	// 재사용 고려해보기
-	dimXElement.innerHTML = dimBox(storeDim.innerXDim);
-	dimYElement.innerHTML = dimBox(storeDim.innerYDim);
+	dimXElement.innerHTML = dimBox(storeDim.innerXDim, spec.settings.outerText);
+	dimYElement.innerHTML = dimBox(storeDim.innerYDim, spec.settings.outerText);
 
-	clonedXDim.innerHTML = dimBox(storeDim.innerXDim - spec.case.left - spec.case.right, '내경 : ');
-	clonedYDim.innerHTML = dimBox(storeDim.innerYDim - spec.case.top - spec.case.bottom, '내경 : ');
+	clonedXDim.innerHTML = dimBox(storeDim.innerXDim - spec.case.left - spec.case.right, spec.settings.innerText);
+	clonedYDim.innerHTML = dimBox(storeDim.innerYDim - spec.case.top - spec.case.bottom, spec.settings.innerText);
 	document.querySelector('out-line').append(dimXElement);
 	document.querySelector('out-line').append(dimYElement);
 	document.querySelector('inner-box').append(clonedXDim);
