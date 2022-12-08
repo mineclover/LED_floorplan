@@ -1,8 +1,9 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable.css");
 :root {
-  --unit: 4;
+  --unit: 1;
   font-size: calc(var(--unit) * 1px);
   --dim-text-size: 10px;
+  --line-width: 2;
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   font-weight: 600;
 }
@@ -38,8 +39,10 @@ main {
   --out-inner-box-right: 16;
   --out-inner-box-top: 16;
   --out-inner-box-bottom: 16;
-  --dim-height: 40;
+  --outer-dim-height: 40;
+  --inner-dim-height: 20;
   --arrow-size: 16;
+  --module-color: #999999;
 }
 main out-line {
   position: relative;
@@ -61,7 +64,7 @@ main out-line inner-box {
 main out-line inner-box row-box {
   display: flex;
   flex-direction: row;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--module-color);
 }
 main out-line inner-box row-box led-module {
   display: flex;
@@ -97,12 +100,12 @@ main out-line inner-box row-box:nth-last-child(3) led-module:nth-child(1) {
 
 .dim-x {
   position: absolute;
-  bottom: calc(var(--dim-height) * -1.1px);
+  bottom: calc(var(--outer-dim-height) * -1.1px);
+  height: calc(var(--outer-dim-height) * 1px);
   box-sizing: border-box;
   width: 100%;
-  height: calc(var(--dim-height) * 1px);
-  border-left: 2px solid red;
-  border-right: 2px solid red;
+  border-left: calc(var(--line-width) * 1px) solid red;
+  border-right: calc(var(--line-width) * 1px) solid red;
 }
 .dim-x .left-arrow {
   position: absolute;
@@ -139,9 +142,9 @@ main out-line inner-box row-box:nth-last-child(3) led-module:nth-child(1) {
   display: flex;
   align-items: center;
   justify-content: center;
-  bottom: calc(var(--arrow-size) * 0.5px);
-  width: 100%;
+  bottom: calc((var(--arrow-size) - var(--line-width)) * 0.5px);
   height: calc(var(--line-width) * 1px);
+  width: 100%;
   background-color: red;
 }
 .dim-x .line .dim-text {
@@ -154,12 +157,12 @@ main out-line inner-box row-box:nth-last-child(3) led-module:nth-child(1) {
 
 .dim-y {
   position: absolute;
-  right: calc(var(--dim-height) * -1.1px);
+  right: calc(var(--outer-dim-height) * -1.1px);
   box-sizing: border-box;
-  width: calc(var(--dim-height) * 1px);
+  width: calc(var(--outer-dim-height) * 1px);
   height: 100%;
-  border-top: 2px solid red;
-  border-bottom: 2px solid red;
+  border-top: calc(var(--line-width) * 1px) solid red;
+  border-bottom: calc(var(--line-width) * 1px) solid red;
 }
 .dim-y .left-arrow {
   position: absolute;
@@ -209,10 +212,18 @@ main out-line inner-box row-box:nth-last-child(3) led-module:nth-child(1) {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
+out-line inner-box .dim-x {
+  bottom: calc(var(--inner-dim-height) * -1.1px);
+  height: calc(var(--inner-dim-height) * 1px);
+}
 out-line inner-box .dim-x .line .dim-text {
   margin: 0;
   margin-bottom: calc(var(--dim-text-size) * 2);
   margin-right: calc(var(--dim-text-size) * 6);
+}
+out-line inner-box .dim-y {
+  right: calc(var(--inner-dim-height) * -1.1px);
+  width: calc(var(--inner-dim-height) * 1px);
 }
 out-line inner-box .dim-y .line .dim-text {
   margin: 0;

@@ -52,9 +52,7 @@ const arr = [
 		key_02: 'row',
 		prename: '단',
 		postname: '',
-		min: 1,
-		max: 1000,
-		other: '',
+		other: `min= "1" max= "1000" step="1"`,
 	},
 	{
 		type: 'number',
@@ -63,9 +61,7 @@ const arr = [
 		key_02: 'column',
 		prename: '열',
 		postname: '',
-		min: 1,
-		max: 1000,
-		other: '',
+		other: `min= "1" max= "1000" step="1"`,
 	},
 	{
 		type: 'number',
@@ -74,9 +70,7 @@ const arr = [
 		key_02: 'size',
 		prename: '모듈크기',
 		postname: 'mm',
-		min: 1,
-		max: 1000,
-		other: '',
+		other: `min= "1" max= "1000" step="1"`,
 	},
 	{
 		type: 'number',
@@ -85,9 +79,7 @@ const arr = [
 		key_02: 'height',
 		prename: '모듈별 단',
 		postname: '',
-		min: 1,
-		max: 10,
-		other: '',
+		other: `min= "1" max= "10" step="1"`,
 	},
 	{
 		type: 'number',
@@ -96,9 +88,7 @@ const arr = [
 		key_02: 'width',
 		prename: '모듈 별 열',
 		postname: 'mm',
-		min: 1,
-		max: 10,
-		other: '',
+		other: `min= "1" max= "10" step="1"`,
 	},
 	{
 		type: 'number',
@@ -107,9 +97,7 @@ const arr = [
 		key_02: 'top',
 		prename: '케이스 상',
 		postname: 'mm',
-		min: 0,
-		max: 1000,
-		other: 'step="10"',
+		other: `min= "0" max= "1000" step="10"`,
 	},
 	{
 		type: 'number',
@@ -118,9 +106,7 @@ const arr = [
 		key_02: 'bottom',
 		prename: '케이스 하',
 		postname: 'mm',
-		min: 0,
-		max: 1000,
-		other: 'step="10"',
+		other: `min= "0" max= "1000" step="10"`,
 	},
 	{
 		type: 'number',
@@ -129,9 +115,7 @@ const arr = [
 		key_02: 'left',
 		prename: '케이스 좌',
 		postname: 'mm',
-		min: 0,
-		max: 1000,
-		other: 'step="10"',
+		other: `min= "0" max= "1000" step="10"`,
 	},
 	{
 		type: 'number',
@@ -140,9 +124,7 @@ const arr = [
 		key_02: 'right',
 		prename: '케이스 우',
 		postname: 'mm',
-		min: 0,
-		max: 1000,
-		other: 'step="10"',
+		other: `min= "0" max= "1000" step="10"`,
 	},
 	{
 		type: 'number',
@@ -151,9 +133,7 @@ const arr = [
 		key_02: 'unit',
 		prename: '이미지 배율',
 		postname: 'px',
-		min: 0,
-		max: 100,
-		other: 'step="0.1"',
+		other: `min= "0" max= "100" step="0.1"`,
 	},
 	{
 		type: 'number',
@@ -162,9 +142,7 @@ const arr = [
 		key_02: 'dimTextSize',
 		prename: 'dim 폰트 크기',
 		postname: 'px',
-		min: 0,
-		max: 100,
-		other: 'step="0.5"',
+		other: `min= "4" max= "100" step="0.5"`,
 	},
 	{
 		type: 'number',
@@ -173,9 +151,16 @@ const arr = [
 		key_02: 'arrowSize',
 		prename: 'dim 화살표 크기',
 		postname: 'px',
-		min: 0,
-		max: 100,
-		other: 'step="0.5"',
+		other: `min= "0" max= "100" step="0.5"`,
+	},
+	{
+		type: 'number',
+		class: 'line-weight',
+		key_01: 'settings',
+		key_02: 'lineWeight',
+		prename: '선 굵기',
+		postname: '',
+		other: `min= "0.5" max= "20" step="0.5"`,
 	},
 	{
 		type: 'text',
@@ -184,9 +169,7 @@ const arr = [
 		key_02: 'innerText',
 		prename: '안쪽 치수 전치사',
 		postname: '',
-		min: 0,
-		max: 100,
-		other: 'step="0.5"',
+		other: `min= "0" max= "100" step="0.5"`,
 	},
 	{
 		type: 'text',
@@ -195,9 +178,34 @@ const arr = [
 		key_02: 'outerText',
 		prename: '바깥쪽 치수 전치사',
 		postname: '',
-		min: 0,
-		max: 100,
-		other: 'step="0.5"',
+		other: `min= "0" max= "100" step="0.5"`,
+	},
+	{
+		type: 'number',
+		class: 'outer-dim-height',
+		key_01: 'settings',
+		key_02: 'outerDimHeight',
+		prename: '바깥쪽 치수 높이',
+		postname: '',
+		other: `min= "-100" max= "100" step="0.5"`,
+	},
+	{
+		type: 'number',
+		class: 'inner-dim-height',
+		key_01: 'settings',
+		key_02: 'innerDimHeight',
+		prename: '안쪽 치수 높이',
+		postname: '',
+		other: `min= "-100" max= "100" step="0.5"`,
+	},
+	{
+		type: 'color',
+		class: 'module-color',
+		key_01: 'settings',
+		key_02: 'moduleColor',
+		prename: '모듈 컬러',
+		postname: '',
+		other: ``,
 	},
 ];
 // key_01 : spec의 key 값 , key_02 : spec의 key 값 안에 key 값
@@ -206,9 +214,10 @@ const eventPush = Element => {
 	arr.forEach(item => {
 		const target = Element.querySelector(`.${item.class}`);
 		target.addEventListener('change', e => {
+			console.log(item.type);
 			if (item.type === 'number') {
 				spec[item.key_01][item.key_02] = Number(e.target.value);
-			} else if (item.type === 'text') {
+			} else if (item.type === 'text' || item.type === 'color') {
 				spec[item.key_01][item.key_02] = e.target.value;
 			}
 			mainRender();
@@ -224,9 +233,7 @@ console.log(spec[arr[0].key_01][arr[0].key_02]);
 const inputGenerate = item => {
 	return `<div class="${item.class}">
   <label>${item.prename}
-    <input type="${item.type}" value="${spec[item.key_01][item.key_02]}" min="${item.min}" max="${item.max}" ${
-		item?.other
-	}/>
+    <input type="${item.type}" value="${spec[item.key_01][item.key_02]}" ${item?.other}/>
     ${item.postname}
   </label>
 </div>`;
@@ -260,7 +267,10 @@ const update = () => {
 	document.documentElement.style.setProperty('--unit', spec.settings.unit);
 	document.documentElement.style.setProperty('--dim-text-size', `${spec.settings.dimTextSize}px`);
 	mainElement.style.setProperty('--arrow-size', spec.settings.arrowSize);
-
+	document.documentElement.style.setProperty('--line-width', `${spec.settings.lineWeight}`);
+	mainElement.style.setProperty('--outer-dim-height', spec.settings.outerDimHeight);
+	mainElement.style.setProperty('--inner-dim-height', spec.settings.innerDimHeight);
+	mainElement.style.setProperty('--module-color', spec.settings.moduleColor);
 	//dimension
 };
 

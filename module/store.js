@@ -21,11 +21,15 @@ export const spec = {
 		caseHeight: 780,
 	},
 	settings: {
-		unit: 1,
+		unit: 4,
 		innerText: '내경 : ',
 		outerText: '외경 : ',
-		dimTextSize: 5,
-		arrowSize: 10,
+		dimTextSize: 12,
+		arrowSize: 12,
+		lineWeight: 2,
+		outerDimHeight: 40,
+		innerDimHeight: 20,
+		moduleColor: '#999999',
 	},
 };
 
