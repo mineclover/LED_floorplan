@@ -50,14 +50,26 @@ main {
 	--inner-dim-height: 20;
 	--arrow-size: 16;
 	--module-color: #999999;
+	--frame-color: #999999;
+	--module-line-color: #000000;
+	--dim-color: #ff0000;
+	--outer-border: 10;
+	--frame-depth: 10;
+	--depth-color: #00ff00;
 
 	out-line {
 		position: relative;
 		display: flex;
-		background-color: #ccc;
-
+		background-color: var(--frame-color);
+		box-sizing: border-box;
 		width: calc(var(--out-line-width) * 1rem);
 		height: calc(var(--out-line-height) * 1rem);
+		border-radius: calc(var(--outer-border) * 1px);
+		box-shadow: calc(var(--frame-depth) * 0.2px) calc(var(--frame-depth) * 0.2px) 0 var(--depth-color),
+			calc(var(--frame-depth) * 0.4px) calc(var(--frame-depth) * 0.4px) 0 var(--depth-color),
+			calc(var(--frame-depth) * 0.6px) calc(var(--frame-depth) * 0.6px) 0 var(--depth-color),
+			calc(var(--frame-depth) * 0.8px) calc(var(--frame-depth) * 0.8px) 0 var(--depth-color),
+			calc(var(--frame-depth) * 1px) calc(var(--frame-depth) * 1px) 0 var(--depth-color);
 		inner-box {
 			position: relative;
 			display: flex;
@@ -80,32 +92,38 @@ main {
 					box-sizing: border-box;
 					width: calc(var(--out-led-module-width) * 1rem);
 					height: calc(var(--out-led-module-height) * 1rem);
-					border-top: 1px solid #000;
-					border-right: 1px solid #000;
+					border-top: 1px solid;
+					border-right: 1px solid;
+					border-color: var(--module-line-color);
 
 					&:nth-child(1) {
-						border-left: 1px solid #000;
+						border-left: 1px solid;
+						border-color: var(--module-line-color);
 					}
 				}
 			}
 			row-box:nth-child(1) {
 				led-module {
 					border: none;
-					border-top: 1px solid #000;
-					border-right: 1px solid #000;
+					border-top: 1px solid;
+					border-right: 1px solid;
+					border-color: var(--module-line-color);
 					&:nth-child(1) {
-						border-left: 1px solid #000;
+						border-left: 1px solid;
+						border-color: var(--module-line-color);
 					}
 				}
 			}
 			row-box:nth-last-child(3) {
 				led-module {
 					border: none;
-					border-top: 1px solid #000;
-					border-bottom: 1px solid #000;
-					border-right: 1px solid #000;
+					border-top: 1px solid;
+					border-bottom: 1px solid;
+					border-right: 1px solid;
+					border-color: var(--module-line-color);
 					&:nth-child(1) {
-						border-left: 1px solid #000;
+						border-left: 1px solid;
+						border-color: var(--module-line-color);
 					}
 				}
 			}
@@ -121,8 +139,9 @@ main {
 
 	width: 100%;
 
-	border-left: calc(var(--line-width) * 1px) solid red;
-	border-right: calc(var(--line-width) * 1px) solid red;
+	border-left: calc(var(--line-width) * 1px) solid;
+	border-right: calc(var(--line-width) * 1px) solid;
+	border-color: var(--dim-color);
 
 	.left-arrow {
 		position: absolute;
@@ -163,12 +182,12 @@ main {
 		bottom: calc(((var(--arrow-size) - var(--line-width)) * 0.5px));
 		height: calc(var(--line-width) * 1px);
 		width: 100%;
-		background-color: red;
+		background-color: var(--dim-color);
 		.dim-text {
 			display: block;
 			font-weight: bold;
 			font-size: var(--dim-text-size);
-			color: red;
+			color: var(--dim-color);
 			background-color: rgba(255, 255, 255, 0.7);
 		}
 	}
@@ -183,9 +202,9 @@ main {
 	width: calc(var(--outer-dim-height) * 1px);
 	height: 100%;
 
-	border-top: calc(var(--line-width) * 1px) solid red;
-	border-bottom: calc(var(--line-width) * 1px) solid red;
-
+	border-top: calc(var(--line-width) * 1px) solid;
+	border-bottom: calc(var(--line-width) * 1px) solid;
+	border-color: var(--dim-color);
 	.left-arrow {
 		position: absolute;
 		top: 0;
@@ -226,12 +245,12 @@ main {
 		right: calc(((var(--arrow-size) - var(--line-width)) * 0.5px));
 		width: calc(var(--line-width) * 1px);
 		height: 100%;
-		background-color: red;
+		background-color: var(--dim-color);
 		.dim-text {
 			display: block;
 			font-weight: bold;
 			font-size: var(--dim-text-size);
-			color: red;
+			color: var(--dim-color);
 			background-color: rgba(255, 255, 255, 0.7);
 		}
 	}

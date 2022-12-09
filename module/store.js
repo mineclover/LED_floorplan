@@ -28,8 +28,14 @@ export const spec = {
 		arrowSize: 12,
 		lineWeight: 2,
 		outerDimHeight: 40,
-		innerDimHeight: 20,
+		innerDimHeight: 30,
 		moduleColor: '#999999',
+		frameColor: '#555555',
+		dimColor: '#ff0000',
+		moduleLineColor: '#000000',
+		outerBorder: 5,
+		frameDepth: 100,
+		depthColor: '#00ff00',
 	},
 };
 

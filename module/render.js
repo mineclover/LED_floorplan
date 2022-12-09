@@ -207,6 +207,60 @@ const arr = [
 		postname: '',
 		other: ``,
 	},
+	{
+		type: 'color',
+		class: 'frame-color',
+		key_01: 'settings',
+		key_02: 'frameColor',
+		prename: '프레임 컬러',
+		postname: '',
+		other: ``,
+	},
+	{
+		type: 'color',
+		class: 'dim-color',
+		key_01: 'settings',
+		key_02: 'dimColor',
+		prename: '치수선 컬러',
+		postname: '',
+		other: `min= "0" max= "100" step="1"`,
+	},
+	{
+		type: 'color',
+		class: 'module-line-color',
+		key_01: 'settings',
+		key_02: 'moduleLineColor',
+		prename: '모듈 라인 컬러',
+		postname: '',
+		other: ``,
+	},
+	{
+		type: 'number',
+		class: 'outer-border',
+		key_01: 'settings',
+		key_02: 'outerBorder',
+		prename: '제품 외곽 둥글기',
+		postname: '',
+		other: `min= "0" max= "100" step="1"`,
+	},
+	{
+		type: 'number',
+		class: 'frame-depth',
+		key_01: 'settings',
+		key_02: 'frameDepth',
+		prename: '제품 깊이',
+		postname: '',
+		other: `min= "0" max= "2000" step="10"`,
+	},
+	{
+		type: 'color',
+		class: 'depth-color',
+		key_01: 'settings',
+		key_02: 'depthColor',
+		prename: '깊이 컬러',
+		postname: '',
+		other: ``,
+	},
 ];
 // key_01 : spec의 key 값 , key_02 : spec의 key 값 안에 key 값
 
@@ -271,6 +325,12 @@ const update = () => {
 	mainElement.style.setProperty('--outer-dim-height', spec.settings.outerDimHeight);
 	mainElement.style.setProperty('--inner-dim-height', spec.settings.innerDimHeight);
 	mainElement.style.setProperty('--module-color', spec.settings.moduleColor);
+	mainElement.style.setProperty('--frame-color', spec.settings.frameColor);
+	mainElement.style.setProperty('--dim-color', spec.settings.dimColor);
+	mainElement.style.setProperty('--module-line-color', spec.settings.moduleLineColor);
+	mainElement.style.setProperty('--outer-border', spec.settings.outerBorder);
+	mainElement.style.setProperty('--frame-depth', spec.settings.frameDepth / 10);
+	mainElement.style.setProperty('--depth-color', spec.settings.depthColor);
 	//dimension
 };
 
